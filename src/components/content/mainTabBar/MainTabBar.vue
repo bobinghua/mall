@@ -1,5 +1,5 @@
 <template>
-  <tab-bar>
+  <tab-bar id="main-tab-bar">
     <tab-bar-item path="/home">
       <img slot="item-icon" src="~assets/img/tabbar/home.jpg" alt="首页" />
       <img slot="item-icon-active" src="~assets/img/tabbar/active.jpg" alt="首页" />
@@ -35,5 +35,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#main-tab-bar {
+  background-color: #fff;
+  z-index: 109;
+}
 </style>

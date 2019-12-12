@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from 'views/home/Home.vue'
-import Category from 'views/category/Category.vue'
-import Cart from 'views/cart/Cart.vue'
-import Profile from 'views/profile/Profile.vue'
+import Category from 'views/category/Category'
+import Cart from 'views/cart/Cart'
+import Profile from 'views/profile/Profile'
 
 Vue.use(Router)
 
 const routes = [
   {
-    path: '',
-    redirect: Home
+    path: '/',
+    redirect: '/home'
   }, {
     path: '/home',
     component: Home
