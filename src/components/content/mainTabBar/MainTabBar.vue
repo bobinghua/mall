@@ -38,6 +38,6 @@ export default {
 <style scoped>
 #main-tab-bar {
   background-color: #fff;
-  z-index: 109;
+  z-index: 9;
 }
 </style>

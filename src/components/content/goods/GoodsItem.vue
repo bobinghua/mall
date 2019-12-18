@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="good.show.img" alt />
+  <div class="goods-item" @click="itemClick">
+    <img :src="showImg" alt="goods" @load="imgLoad" />
     <div class="goods-info">
       <p>{{good.title}}</p>
       <span class="price">{{good.price}}</span>
@@ -18,6 +18,26 @@ export default {
       default() {
         return {};
       }
+    }
+  },
+  methods: {
+    imgLoad() {
+      // 向全局事件总线发送一个事件
+      // 这里发送事件主要是告诉Home组件有一个图片完成了加载，需要刷新Scroll组件的高度
+      this.$bus.$emit("itemImgLoad");
+    },
+    itemClick() {
+      console.log("条抓");
+      // 跳转到详情页
+      this.$router.push("/detail/" + this.getId);
+    }
+  },
+  computed: {
+    showImg() {
+      return this.good.image || this.good.show.img;
+    },
+    getId() {
+      return this.good.iid || this.good.shop_id;
     }
   }
 };

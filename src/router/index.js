@@ -4,8 +4,15 @@ import Home from 'views/home/Home.vue'
 import Category from 'views/category/Category'
 import Cart from 'views/cart/Cart'
 import Profile from 'views/profile/Profile'
+import Detail from 'views/detail/Detail'
+// const Detail = () => import('views/detail/Detail')
 
 Vue.use(Router)
+
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 const routes = [
   {
@@ -23,6 +30,9 @@ const routes = [
   }, {
     path: '/profile',
     component: Profile
+  }, {
+    path: '/detail/:iid',
+    component: Detail
   }
 ]
 

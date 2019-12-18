@@ -35,6 +35,12 @@ export default {
     },
     finishPullUp() {
       this.bscroll.finishPullUp();
+    },
+    refresh() {
+      this.bscroll.refresh();
+    },
+    getScrollY() {
+      return this.bscroll ? this.bscroll.y : 0;
     }
   },
   mounted() {
