@@ -34,10 +34,14 @@ export default {
   methods: {
     itemClick(index) {
       this.currentType = index;
+      this.$emit("titleClick", index);
     },
     backClick() {
       console.log("back");
       this.$router.back();
+    },
+    changeTitle(index) {
+      this.currentType = index;
     }
   }
 };
@@ -55,7 +59,7 @@ export default {
   color: pink;
 }
 .back img {
-  height: 20px;
-  margin-top: 10px;
+  height: 15px;
+  margin-top: 12px;
 }
 </style>

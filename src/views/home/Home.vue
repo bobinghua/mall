@@ -37,9 +37,9 @@ import NavBar from "components/common/navbar/NavBar.vue";
 import TabControl from "components/content/tabControl/TabControl";
 import Goods from "components/content/goods/Goods";
 import Scroll from "components/common/scroll/Scroll";
-import BackTop from "components/content/backTop/BackTop";
 
 import { getHomeMultidata, getHomeGoods } from "network/home.js";
+import { backTopMixin } from "@/common/mixins.js";
 
 export default {
   name: "Home",
@@ -50,8 +50,7 @@ export default {
     HomeFeature,
     TabControl,
     Goods,
-    Scroll,
-    BackTop
+    Scroll
   },
   data() {
     return {
@@ -73,12 +72,12 @@ export default {
         }
       },
       currentType: "pop",
-      backTopShow: false,
       tabOffsetTop: 0,
       isTabFixed: false,
       saveY: 0
     };
   },
+  mixins: [backTopMixin],
   created() {
     // 请求多个数据
     getHomeMultidata()
@@ -128,11 +127,6 @@ export default {
       }
       this.$refs.tabControl1.currentIndex = index;
       this.$refs.tabControl2.currentIndex = index;
-    },
-    // 返回顶部
-    backTop() {
-      this.$refs.scroll.scrollTo(0, 0);
-      this.backTopShow = false;
     },
     // 滚动监听
     scroll(position) {
