@@ -23,8 +23,14 @@ export default new Vuex.Store({
         context.commit('addCounter', p);
       else {
         pro.count = 1
+        pro.checked = true
         context.commit('addToCart', pro);
       }
+    }
+  },
+  getters: {
+    getCarts(state) {
+      return state.carts;
     }
   }
 })
